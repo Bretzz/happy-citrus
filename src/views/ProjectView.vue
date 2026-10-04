@@ -47,7 +47,7 @@ const formatBytes = (bytes: number | string) => {
   return `${(num / Math.pow(k, i)).toFixed(1)} ${sizes[i]}`
 }
 
-const URL = 'http://localhost:8080'
+const URL = ''/* 'http://localhost:8080' */
 
 onMounted(async () => {
   try {

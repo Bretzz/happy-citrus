@@ -11,7 +11,7 @@ const projects = ref<string[]>([])
 const loading = ref(true)
 const error = ref('')
 
-const URL = 'http://localhost:8080'
+const URL = ''/* 'http://localhost:8080' */
 
 onMounted(async () => {
   try {
@@ -34,7 +34,7 @@ onMounted(async () => {
         <span class="text-zinc-500 mr-2">$</span>projects
       </h1>
       <span class="text-xs px-2 py-0.5 rounded border border-zinc-800 bg-zinc-900 text-[#ACD3E3]">
-        happy-citrus v1.0
+        citrus v1.0
       </span>
     </div>
 
