@@ -11,6 +11,8 @@ const projects = ref<string[]>([])
 const loading = ref(true)
 const error = ref('')
 
+const URL = 'http://localhost:8080'
+
 onMounted(async () => {
   try {
     const res = await fetch('http://localhost:8080/p')
@@ -66,7 +68,7 @@ onMounted(async () => {
           </router-link>
 
           <a 
-            :href="`http://localhost:8080/p/download?project=${encodeURIComponent(proj)}`"
+            :href="`${URL}/p/download?project=${encodeURIComponent(proj)}`"
             class="px-3 py-1 text-xs font-semibold rounded bg-[#D3E3AC]/10 text-[#D3E3AC] border border-[#D3E3AC]/30 hover:bg-[#D3E3AC] hover:text-zinc-950 transition-all"
           >
             ZIP

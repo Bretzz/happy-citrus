@@ -47,9 +47,11 @@ const formatBytes = (bytes: number | string) => {
   return `${(num / Math.pow(k, i)).toFixed(1)} ${sizes[i]}`
 }
 
+const URL = 'http://localhost:8080'
+
 onMounted(async () => {
   try {
-    const res = await fetch(`http://localhost:8080/p/${projectName}`)
+    const res = await fetch(`${URL}/p/${projectName}`)
     if (!res.ok) throw new Error('Project not found')
     project.value = await res.json()
   } catch (e: any) {
@@ -95,7 +97,7 @@ onMounted(async () => {
             <span class="font-bold text-[#ACD3E3] text-sm">{{ formatBytes(project.project_size) }}</span>
           </div>
           <a 
-            :href="`http://localhost:8080/p/download?project=${encodeURIComponent(projectName)}`"
+            :href="`${URL}/p/download?project=${encodeURIComponent(projectName)}`"
             class="px-3 py-2 text-xs font-semibold rounded bg-[#D3E3AC] text-zinc-950 hover:bg-[#D3E3AC]/80 transition-colors"
           >
             ZIP
@@ -121,7 +123,7 @@ onMounted(async () => {
               <td class="py-3 px-4 text-[#E3ACD3]">{{ formatBytes(res.size) }}</td>
               <td class="py-3 px-4 text-right">
                 <a 
-                  :href="`http://localhost:8080/p/${projectName}/${res.filename}`" 
+                  :href="`${URL}/p/${projectName}/${res.filename}`" 
                   target="_blank"
                   class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-[#ACD3E3]/50 hover:text-[#ACD3E3] transition-colors"
                 >
