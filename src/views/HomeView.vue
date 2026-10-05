@@ -15,7 +15,7 @@ const URL = ''/* 'http://localhost:8080' */
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:8080/p')
+    const res = await fetch(`${URL}/p`)
     if (!res.ok) throw new Error('Failed to load projects')
     projects.value = await res.json()
   } catch (e: any) {
